@@ -34,6 +34,14 @@ test:
 format_with_black:
 	black .
 
+flake8:
+	flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics --exclude venv; flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics --exclude venv
+
+sort_imports:
+	isort .; isort --check --diff .
+
+checks:
+	make format_with_black; make flake8; make sort_imports; make test
 logs_web:
 	docker-compose logs web --tail 10 --follow
 
