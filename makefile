@@ -29,7 +29,7 @@ create_superuser:
 	docker-compose exec web python manage.py createsuperuser
 
 test:
-	docker-compose exec web python manage.py test $(path) --keepdb
+	docker-compose exec web python manage.py test  --keepdb
 
 logs_web:
 	docker-compose logs web --tail 10 --follow
