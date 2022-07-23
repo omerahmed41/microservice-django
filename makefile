@@ -5,7 +5,7 @@ run:
 	docker-compose up
 
 run-d:
-	docker-compose up -d; make test
+	docker-compose up -d; docker-compose exec -T web  python manage.py test  --keepdb
 
 stop:
 	docker-compose down
