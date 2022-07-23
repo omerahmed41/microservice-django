@@ -6,8 +6,8 @@ on:
 
   workflow_dispatch:
       inputs:
-        version:
-          description: 'Image version'
+        version: 
+          description: '1'
           required: true
 jobs:
   build:
