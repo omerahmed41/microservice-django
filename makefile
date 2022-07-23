@@ -31,8 +31,15 @@ create_superuser:
 test:
 	docker-compose exec -T web  python manage.py test  --keepdb
 
+format_with_black:
+	black .
+
 logs_web:
 	docker-compose logs web --tail 10 --follow
 
 grep:
 	docker-compose logs web --follow | grep -i $(keyword)
+
+
+
+
