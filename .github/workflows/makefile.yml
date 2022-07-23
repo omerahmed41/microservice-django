@@ -3,8 +3,6 @@ name: Makefile CI
 on:
   push:
     branches: [ "master" ]
-  pull_request:
-    branches: [ "master" ]
 
 jobs:
   build:
@@ -13,8 +11,11 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
-    
+      
+    - name: Install dependencies
+      run: make run-d
       
     - name: Run check
-      run: make test
-      
+      run:  make run-d
+
+ 
