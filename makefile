@@ -5,7 +5,7 @@ run:
 	docker-compose up
 
 run-d:
-	docker-compose up -d; docker-compose exec -T web  python manage.py test  --keepdb
+	docker-compose up -d;
 
 stop:
 	docker-compose down
@@ -29,7 +29,7 @@ create_superuser:
 	docker-compose exec web python manage.py createsuperuser
 
 test:
-	docker-compose exec web python manage.py test  --keepdb
+	docker-compose exec -T web  python manage.py test  --keepdb
 
 logs_web:
 	docker-compose logs web --tail 10 --follow
